@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Game</title>
+  
   <link rel="stylesheet" href="styles.css">
   <!-- <--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">--> -->
 
@@ -74,10 +75,11 @@
     <iframe src="chatbot/chatbot.html"></iframe>
 </div>
 
-
-
 <script>
-   
+     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+     if (!isLoggedIn) {
+    window.location.href = "login.html";
+  }
     function toggleChatbot() {
       const modal = document.getElementById("chatModal");
       modal.style.display = modal.style.display === "block" ? "none" : "block";
@@ -85,10 +87,7 @@
 
     // --- Navbar auth state handler ---
     const nav = document.getElementById("nav-links");
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-     if (!isLoggedIn) {
-    window.location.href = "login.html";
-  }
+  
     if (isLoggedIn) {
       const logoutLink = document.createElement("a");
       logoutLink.className = "link";
@@ -115,6 +114,8 @@
     }
 
 </script>
+
+
 </body>
 </html>
 
